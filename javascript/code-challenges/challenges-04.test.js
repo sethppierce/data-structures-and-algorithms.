@@ -167,6 +167,16 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  let newArr =  arr.sort((a,b) => {
+    return a.lastName - b.lastName;
+  });
+  return newArr.sort((a,b) => {
+    if(a.firstName !== b.firstName){
+      return 0;
+    }
+    // else if(a.lastName === b.lastName && a.firstName - b.firstName){
+    //   return a.age - b.age;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -193,6 +203,20 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  let prio = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+    Saturday: 6,
+    Sunday: 7
+  };
+  return arr.sort((a,b) => {
+    let dayOne = a.dayOfWeek;
+    let dayTwo = b.dayOfWeek;
+    return prio[dayOne] - prio[dayTwo];
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -207,6 +231,30 @@ You DO NOT need to use your solution to Challenge 12 in completing Challenge 13.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  let prio = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+    Saturday: 6,
+    Sunday: 7
+  };
+  let newArr = arr.sort((a,b) => {
+    let dayOne = a.dayOfWeek;
+    let dayTwo = b.dayOfWeek;
+    prio[dayOne] - prio[dayTwo];
+  });
+  return newArr.sort((a,b) => {
+    if (a.dayOfWeek === b.dayOfWeek) {
+      if(a.start === b.start && a.end < b.end){
+        return -1;
+      }
+      else if(a.start < b.start){
+        return -1;
+      }
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -319,7 +367,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
@@ -340,7 +388,7 @@ xdescribe('Testing challenge 11', () => {
   });
 });
 
-xdescribe('Testing challenge 12', () => {
+describe('Testing challenge 12', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0,2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
@@ -350,7 +398,7 @@ xdescribe('Testing challenge 12', () => {
   });
 });
 
-xdescribe('Testing challenge 13', () => {
+describe('Testing challenge 13', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
