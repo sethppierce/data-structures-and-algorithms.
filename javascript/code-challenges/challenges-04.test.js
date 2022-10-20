@@ -367,7 +367,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-describe('Testing challenge 11', () => {
+xdescribe('Testing challenge 11', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
