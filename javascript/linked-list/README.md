@@ -26,3 +26,11 @@ I simply made the classes for both and made the linked list class include the me
   - Arguments: none
   - Returns: a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
+
+- insertsAfter -
+  - Arguments: value, newValue
+  - adds a new node with the new value after the node with the value of the parameter value.
+
+- insertsBefore -
+  - Arguments: value, newValue
+  - adds a new node with the new value before the node with the value of the parameter value.
