@@ -54,4 +54,48 @@ describe('Linked List', () => {
     let listString = newList.toString();
     expect(listString).toEqual('{a} -> {b} -> {c} -> NULL');
   });
+  it('Can successfully add a node to the end of the linked list, Can successfully add multiple nodes to the end of a linked list', () => {
+    let newList = new LinkedList();
+    newList.add('a');
+    newList.add('b');
+    newList.add('c');
+    let listString = newList.toString();
+    expect(listString).toEqual('{a} -> {b} -> {c} -> NULL');
+  });
+  it('Can successfully insert a node before a node located i the middle of a linked list', () => {
+    let newList = new LinkedList();
+    newList.add('a');
+    newList.add('b');
+    newList.add('c');
+    newList.insertBefore('b','z');
+    let listString = newList.toString();
+    expect(listString).toEqual('{a} -> {z} -> {b} -> {c} -> NULL');
+  });
+  it('Can successfully insert a node before the first node of a linked list', () => {
+    let newList = new LinkedList();
+    newList.add('a');
+    newList.add('b');
+    newList.add('c');
+    newList.insertBefore('a','z');
+    let listString = newList.toString();
+    expect(listString).toEqual('{z} -> {a} -> {b} -> {c} -> NULL');
+  });
+  it('Can successfully insert after a node in the middle of the linked list', () => {
+    let newList = new LinkedList();
+    newList.add('a');
+    newList.add('b');
+    newList.add('c');
+    newList.insertAfter('b','z');
+    let listString = newList.toString();
+    expect(listString).toEqual('{a} -> {b} -> {z} -> {c} -> NULL');
+  });
+  it('Can successfully insert a node after the last node of the linked list', () => {
+    let newList = new LinkedList();
+    newList.add('a');
+    newList.add('b');
+    newList.add('c');
+    newList.insertAfter('c','z');
+    let listString = newList.toString();
+    expect(listString).toEqual('{a} -> {b} -> {c} -> {z} -> NULL');
+  });
 });
