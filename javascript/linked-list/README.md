@@ -34,3 +34,10 @@ I simply made the classes for both and made the linked list class include the me
 - insertsBefore -
   - Arguments: value, newValue
   - adds a new node with the new value before the node with the value of the parameter value.
+
+- kthFromEnd -
+  - arguments: k
+  - returns the value of the node kth from the end of the linked list.
+
+kthFromEnd whiteboard
+![kthFromEnd](CC07.png)
