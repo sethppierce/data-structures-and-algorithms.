@@ -98,4 +98,27 @@ describe('Linked List', () => {
     let listString = newList.toString();
     expect(listString).toEqual('{a} -> {b} -> {c} -> {z} -> NULL');
   });
+
+  let newList = new LinkedList();
+  newList.add('a');
+  newList.add('b');
+  newList.add('c');
+
+  it('Where k is greater than the length of the linked list', () => {
+    expect(newList.kthFromEnd(4)).toEqual('Exception');
+  });
+  it('Where k and the length of the list are the same', () => {
+    expect(newList.kthFromEnd(2)).toEqual('a');
+  });
+  it('Where k is not a positive integer', () => {
+    expect(newList.kthFromEnd(-1)).toEqual('Exception');
+  });
+  it('Where the linked list is of a size 1', () => {
+    let singlelinkedlist = new LinkedList();
+    singlelinkedlist.add(1);
+    expect(singlelinkedlist.kthFromEnd(0)).toEqual(1);
+  });
+  it('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
+    expect(newList.kthFromEnd(2)).toEqual('a');
+  });
 });
