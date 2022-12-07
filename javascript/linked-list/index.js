@@ -106,5 +106,27 @@ class LinkedList{
     return current.value;
   }
 }
+function zipLists(list1,list2){
+  let list1cur = list1.head;
+  let list2cur = list2.head;
+  if(list1cur === null){return list2;}
+  if(list2cur === null){return list1;}
+  let list3 = new LinkedList();
+  while(list1cur && list2cur){
+    list3.add(list1cur.value);
+    list3.add(list2cur.value);
+    list1cur = list1cur.next;
+    list2cur = list2cur.next;
+  }
+  while(list1cur){
+    list3.add(list1cur.value);
+    list1cur = list1cur.next;
+  }
+  while(list2cur){
+    list3.add(list2cur.value);
+    list2cur = list2cur.next;
+  }
+  return list3;
+}
 
-module.exports = LinkedList;
+module.exports = {LinkedList, zipLists};
