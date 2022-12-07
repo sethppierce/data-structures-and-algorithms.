@@ -41,3 +41,10 @@ I simply made the classes for both and made the linked list class include the me
 
 kthFromEnd whiteboard
 ![kthFromEnd](CC07.png)
+
+- zipLists -
+  - arguments: list1,list2
+  - returns: a new linked list
+
+zipLists whiteboard
+![zipLists](linked-list-zipped.jpg)

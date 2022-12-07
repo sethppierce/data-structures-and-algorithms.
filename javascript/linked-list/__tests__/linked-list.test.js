@@ -1,7 +1,7 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../index');
+const {LinkedList, zipLists} = require('../index');
 
 describe('Linked List', () => {
   let list = new LinkedList();
@@ -120,5 +120,32 @@ describe('Linked List', () => {
   });
   it('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
     expect(newList.kthFromEnd(2)).toEqual('a');
+  });
+});
+describe('Linked List zipper', () => {
+  let list = new LinkedList();
+  list.add('a');
+  list.add('b');
+  list.add('c');
+  let list2 = new LinkedList();
+  list2.add(1);
+  list2.add(2);
+  list2.add(3);
+  it('Combines two equal length linked lists', () => {
+    let list3 = zipLists(list, list2);
+    expect(list3.toString()).toEqual('{a} -> {1} -> {b} -> {2} -> {c} -> {3} -> NULL');
+  });
+  it('Combines two different length linked lists', () => {
+    list = new LinkedList();
+    list.add('a');
+    list.add('b');
+    let list3 = zipLists(list, list2);
+    expect(list3.toString()).toEqual('{a} -> {1} -> {b} -> {2} -> {3} -> NULL');
+  });
+  it('Combines two different length linked lists, when one is empty', () => {
+    list = new LinkedList();
+
+    let list3 = zipLists(list, list2);
+    expect(list3.toString()).toEqual('{1} -> {2} -> {3} -> NULL');
   });
 });
