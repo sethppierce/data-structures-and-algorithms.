@@ -57,7 +57,7 @@ describe('Queue', () => {
   it('Can successfully enqueue into a queue', () => {
     testQueue.enqueue(1);
     expect(testQueue.front.value).toEqual(1);
-    expect(testQueue.rear).toEqual(null);
+    expect(testQueue.rear).toEqual(testQueue.front);
   });
 
   it('Can successfully enqueue multiple values into a queue', () => {
