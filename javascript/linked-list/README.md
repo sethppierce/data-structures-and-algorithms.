@@ -1,6 +1,6 @@
 # Singly Linked List
 <!-- Short summary or background information -->
-inkedList is the dynamic data structure, as we can add or remove elements at ease, and it can even grow as needed. from [Geeksforgeeks](https://www.geeksforgeeks.org/implementation-linkedlist-javascript/)
+LinkedList is the dynamic data structure, as we can add or remove elements at ease, and it can even grow as needed. from [Geeksforgeeks](https://www.geeksforgeeks.org/implementation-linkedlist-javascript/)
 
 ## Challenge
 <!-- Description of the challenge -->
