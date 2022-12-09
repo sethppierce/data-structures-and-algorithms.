@@ -50,9 +50,10 @@ class Queue {
   enqueue(value) {
     let node = new Node(value);
     if(this.front === null){
-      return this.front = node;
+      this.front = node;
+      return this.rear = node;
     }
-    if(this.rear === null){
+    if(this.rear === this.front){
       this.rear = node;
       return this.front.next = this.rear;
     }
