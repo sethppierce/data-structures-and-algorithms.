@@ -70,3 +70,7 @@ PseudoQueue -
   - Returns: the value from node from the front of the stack2
   - pushes all of stack1 into stack2 in reverse order, then removes the last node in stack2, and sends the rest back to stack1
   - Should raise exception when called on empty queue
+
+PseudoQueue whiteboard
+
+![whiteboard](./pseudoQueue.jpg)
