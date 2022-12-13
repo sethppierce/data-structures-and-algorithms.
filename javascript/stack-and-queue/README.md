@@ -7,6 +7,8 @@ A queue works based on the first-in, first-out (FIFO) principle, which is differ
 
 The pseudoQueue class is essientially a queue but using two stacks to simulate the queues functionality.
 
+The animalShelter class has two properties, catQueue and dogQueue, that are stored inside of it, they're both made using the Queue class.
+
 ## Challenge
 <!-- Description of the challenge -->
 Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
@@ -16,15 +18,28 @@ Do not use an existing Queue.
 Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below),
 Internally, utilize 2 Stack instances to create and manage the queue.
 
+Create a class called AnimalShelter which holds only dogs and cats.
+The shelter operates using a first-in, first-out approach.
+Implement the following methods:
+enqueue
+Arguments: animal
+animal can be either a dog or a cat object.
+dequeue
+Arguments: pref
+pref can be either "dog" or "cat"
+Return: either a dog or a cat, based on preference.
+If pref is not "dog" or "cat" then return null.
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 Created the class and methods for both Stack and Queue, all methods have a time BigO of O(1).
 Created the PseudoQueue class, and the methods enqueue and dequeue.
+Created the AnimalShelter class, and used a separate queue for dogs and cats, with the methods of enqueue and dequeue from the queue class.
 
 ## API
 <!-- Description of each method publicly available to your Stack and Queue-->
 
-Stack -
+### Stack -
 
 - push
   - Arguments: value
@@ -42,7 +57,7 @@ Stack -
   - Arguments: none
   - Returns: Boolean indicating whether or not the stack is empty.
 
-Queue -
+### Queue -
 
 - enqueue
   - Arguments: value
@@ -60,7 +75,7 @@ Queue -
   - Arguments: none
   - Returns: Boolean indicating whether or not the queue is empty
 
-PseudoQueue -
+### PseudoQueue -
 
 - enqueue
   - Arguments: value
@@ -74,3 +89,16 @@ PseudoQueue -
 PseudoQueue whiteboard
 
 ![whiteboard](./pseudoQueue.jpg)
+
+### Animal Shelter
+
+![whiteboard](./stack-queue-animal-shelter.JPG)
+
+- enqueue
+  - Arguments: animal
+  - adds a new node with that value to the back of the either the dog or cat queue depending on the species with an O(1) Time performance.
+- dequeue
+  - Arguments: pref
+  - Returns: the value from node from the front of the queue
+  - Removes the node from the front of either the dog or cat queue depending on the pref argument
+  - Should return null if pref is neither a cat or a dog

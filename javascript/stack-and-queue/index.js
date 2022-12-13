@@ -108,5 +108,27 @@ class Queue {
   }
 }
 
+class AnimalShelter {
+  constructor(){
+    this.dogQueue = new Queue();
+    this.catQueue = new Queue();
+  }
 
-module.exports = { Stack, Queue, PseudoQueue };
+  enqueue(animal){
+    if (animal.species === 'dog') {
+      this.dogQueue.enqueue(animal);
+    } else if (animal.species === 'cat') {
+      this.catQueue.enqueue(animal);
+    } else { return null;}
+  }
+  dequeue(pref){
+    if (pref === 'dog') {
+      return this.dogQueue.dequeue();
+    } else if (pref === 'cat') {
+      return this.catQueue.dequeue();
+    } else { return null; }
+  }
+
+}
+
+module.exports = { Stack, Queue, PseudoQueue, AnimalShelter };
