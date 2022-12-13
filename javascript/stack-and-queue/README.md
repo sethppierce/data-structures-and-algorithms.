@@ -24,7 +24,7 @@ Created the PseudoQueue class, and the methods enqueue and dequeue.
 ## API
 <!-- Description of each method publicly available to your Stack and Queue-->
 
-Stack -
+### Stack -
 
 - push
   - Arguments: value
@@ -42,7 +42,7 @@ Stack -
   - Arguments: none
   - Returns: Boolean indicating whether or not the stack is empty.
 
-Queue -
+### Queue -
 
 - enqueue
   - Arguments: value
@@ -60,7 +60,7 @@ Queue -
   - Arguments: none
   - Returns: Boolean indicating whether or not the queue is empty
 
-PseudoQueue -
+### PseudoQueue -
 
 - enqueue
   - Arguments: value
@@ -74,3 +74,16 @@ PseudoQueue -
 PseudoQueue whiteboard
 
 ![whiteboard](./pseudoQueue.jpg)
+
+### Animal Shelter
+
+![whiteboard](./stack-queue-animal-shelter.JPG)
+
+- enqueue
+  - Arguments: animal
+  - adds a new node with that value to the back of the either the dog or cat queue depending on the species with an O(1) Time performance.
+- dequeue
+  - Arguments: pref
+  - Returns: the value from node from the front of the queue
+  - Removes the node from the front of either the dog or cat queue depending on the pref argument
+  - Should return null if pref is neither a cat or a dog
