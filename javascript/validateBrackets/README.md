@@ -18,7 +18,6 @@ Curly Brackets : {}
 I took the approach of adding each opening bracket to the stack, and for each closing set the variable close to pop off one from the stack,
 if the bracket and close aren't the corresponding brackets for eachother, return false.
 
-## API
 
 ![validate brackets whiteboard](./cc13.JPG)
 
