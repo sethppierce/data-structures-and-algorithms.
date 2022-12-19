@@ -42,3 +42,7 @@ I used recursion in each of my methods, I believe the Big O for space for each i
 - BinarySearchTree -
   - add - adds value to tree in correct position
   - contains - displays whether or not the value inputted is inside the tree returns true or false
+
+### TreeMax
+
+![treemax whiteboard](./cc16.jpg)
