@@ -38,7 +38,11 @@ I used recursion in each of my methods, I believe the Big O for space for each i
   - preOrder - starts from root, goes left, and then right, adds values into array, returns array
   - inOrder - returns array of each value in tree from least to greatest
   - postOrder - goes left first, then right , and then root value of tree
-
+  - treeMax - finds the largest value in a tree
 - BinarySearchTree -
   - add - adds value to tree in correct position
   - contains - displays whether or not the value inputted is inside the tree returns true or false
+
+### TreeMax
+
+![treemax whiteboard](./cc16.jpg)
