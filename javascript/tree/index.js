@@ -74,8 +74,8 @@ class BinaryTree {
     };
     traverse(this.root);
     return max;
-
   }
+
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -109,4 +109,71 @@ class BinarySearchTree extends BinaryTree {
   }
 }
 
-module.exports = {Node, BinaryTree, BinarySearchTree};
+class QueueNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.front = null;
+    this.rear = null;
+  }
+
+  enqueue(value) {
+    let node = new QueueNode(value);
+    if (this.front === null) {
+      this.front = node;
+      this.rear = node;
+      return;
+    }
+    if (this.rear === this.front) {
+      this.rear = node;
+      this.front.next = this.rear;
+      return;
+    }
+    this.rear.next = node;
+    this.rear = this.rear.next;
+  }
+
+  dequeue() {
+    if (this.front === null) { return 'Exception'; }
+    let temp = this.front;
+    this.front = this.front.next;
+    temp.next = null;
+    return temp.value;
+  }
+
+  peek() {
+    if (this.front === null) { return 'Exception'; }
+    return this.front.value;
+  }
+
+  isEmpty() {
+    if (this.front === null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+function breadthFirst(tree){
+  const queue = new Queue();
+  queue.enqueue(tree.root);
+  let values = [];
+  while (!queue.isEmpty()) {
+    const currentNode = queue.dequeue();
+    values.push(currentNode.value);
+    if (currentNode.left) {
+      queue.enqueue(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.enqueue(currentNode.right);
+    }
+  }
+  return values;
+}
+module.exports = {Node, BinaryTree, BinarySearchTree, Queue, breadthFirst};
