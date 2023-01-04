@@ -8,6 +8,6 @@ Initial state: 3 4 2 1
 
 3. The third pass will consider the fourth element (index 3), 1. 1 is less than 2, so it will be inserted in front of 2. The array is now `[1, 2, 3, 4]`.
 
-4. The fourth and final pass will consider the first element (index 0), 1. 1 is already in its correct position, so the final sorted array is `[1, 2, 3, 4]`.
+4. The fourth and final pass will consider the first element (index 0), 1. 1 is already in its correct position, so thecd final sorted array is `[1, 2, 3, 4]`.
 
 ![visual](./CC-26.png)
