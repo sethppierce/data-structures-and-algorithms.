@@ -23,3 +23,4 @@ The array is now sorted.
 ## Resources used
 
 I used chatgpt to help understand and process the mergesort algorithm, my brain was kinda fried from the lab so it was a great resource to explain step by step.
+cd
