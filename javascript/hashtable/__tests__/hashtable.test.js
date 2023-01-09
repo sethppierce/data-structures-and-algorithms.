@@ -1,6 +1,6 @@
 'use strict';
 
-const HashTable = require('../index');
+const {HashTable} = require('../index');
 
 describe('Hash table ', () => {
   it('Setting a key/value to your hashtable results in the value being in the data structure', () => {
