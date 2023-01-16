@@ -54,4 +54,26 @@ describe('Graph', () => {
     expect(graph.size()).toEqual(1);
   });
 
+  test('should return an array of nodes in breadth-first order', () => {
+    graph.addNode('A');
+    graph.addNode('B');
+    graph.addNode('C');
+    graph.addEdge('A', 'B');
+    graph.addEdge('A', 'C');
+    expect(graph.breadthFirst('A')).toEqual(['A', 'B', 'C']);
+  });
+
+  test('should return the starting node if it is the only node in the graph', () => {
+    graph.addNode('A');
+    expect(graph.breadthFirst('A')).toEqual(['A']);
+  });
+
+  test('should return null if the starting node is not in the graph', () => {
+    graph.addNode('A');
+    graph.addNode('B');
+    graph.addNode('C');
+    graph.addEdge('A', 'B');
+    graph.addEdge('A', 'C');
+    expect(graph.breadthFirst('D')).toEqual(null);
+  });
 });
