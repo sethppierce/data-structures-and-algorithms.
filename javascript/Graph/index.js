@@ -32,6 +32,26 @@ class Graph {
   size() {
     return this.nodes.size;
   }
+
+  breadthFirst(node) {
+    let visited = new Set();
+    let queue = [node];
+    let result = [];
+    if(!this.nodes.has(node)) return null;
+    while (queue.length) {
+      let current = queue.shift();
+      if (!visited.has(current)) {
+        visited.add(current);
+        result.push(current);
+        let neighbors = this.getNeighbors(current);
+        for (let neighbor of neighbors) {
+          queue.push(neighbor.node);
+        }
+      }
+    }
+
+    return result;
+  }
 }
 
-module.exports = {Graph};
+module.exports = { Graph };

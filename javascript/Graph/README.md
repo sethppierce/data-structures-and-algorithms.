@@ -14,3 +14,10 @@ I approached the challenge by implementing a Graph class that uses a javascript 
 - `getNodes()` : return all of the nodes in the graph
 - `getNeighbors(node)` : return a collection of edges connected to the given node, including the weight of the connection
 - `size()` : return the total number of nodes in the graph
+- `breadthFirst()`: returns the nodes in the order they were visted.
+
+### Whiteboards
+
+#### breadthFirst
+
+![uml](./CC-36.png)
