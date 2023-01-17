@@ -1,4 +1,4 @@
-const {Graph} = require('../index');
+const {Graph, businessTrip} = require('../index');
 
 
 describe('Graph', () => {
@@ -75,5 +75,43 @@ describe('Graph', () => {
     graph.addEdge('A', 'B');
     graph.addEdge('A', 'C');
     expect(graph.breadthFirst('D')).toEqual(null);
+  });
+});
+
+describe('buisness trip', () => {
+
+  let graph;
+
+  beforeEach(() => {
+    graph = new Graph();
+    graph.addNode('Metroville');
+    graph.addNode('Pandora');
+    graph.addNode('Arendelle');
+    graph.addNode('Monstropolis');
+    graph.addEdge('Metroville', 'Pandora', 10);
+    graph.addEdge('Metroville', 'Arendelle', 20);
+    graph.addEdge('Metroville', 'Monstropolis', 30);
+    graph.addEdge('Pandora', 'Arendelle', 40);
+    graph.addEdge('Arendelle', 'Monstropolis', 50);
+  });
+
+  test('it returns the cost of the flights that are direct', () => {
+    let flight = businessTrip(graph, ['Metroville', 'Pandora']);
+    expect(flight).toEqual(10);
+  });
+
+  test('it returns null if it isn`t a direct flight', () => {
+    let flight = businessTrip(graph, ['Pandora', 'Monstropolis']);
+    expect(flight).toEqual(null);
+  });
+
+  test('it returns null if the destination is not in the graph', () => {
+    let flight = businessTrip(graph, ['Pandora', 'Valdosta']);
+    expect(flight).toEqual(null);
+  });
+
+  test('handles a single city input', () => {
+    let flight = businessTrip(graph, ['Metroville']);
+    expect(flight).toEqual(0);
   });
 });

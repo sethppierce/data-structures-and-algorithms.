@@ -37,7 +37,7 @@ class Graph {
     let visited = new Set();
     let queue = [node];
     let result = [];
-    if(!this.nodes.has(node)) return null;
+    if (!this.nodes.has(node)) return null;
     while (queue.length) {
       let current = queue.shift();
       if (!visited.has(current)) {
@@ -54,4 +54,21 @@ class Graph {
   }
 }
 
-module.exports = { Graph };
+function businessTrip(graph, cities) {
+  let cost = 0;
+  let currentCity = cities[0];
+  for (let i = 1; i < cities.length; i++) {
+    let destination = cities[i];
+    let neighbors = graph.getNeighbors(currentCity);
+    let flight = neighbors.find(n => n.node === destination);
+    if (flight === undefined) {
+      return null;
+    } else {
+      cost += flight.weight;
+    }
+    currentCity = destination;
+  }
+  return cost;
+}
+
+module.exports = { Graph, businessTrip };
