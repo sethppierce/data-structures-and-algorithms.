@@ -52,6 +52,25 @@ class Graph {
 
     return result;
   }
+
+  depthFirst(node) {
+    let visited = new Set();
+    let stack = [node];
+    let result = [];
+    if (!this.nodes.has(node)) return null;
+    while (stack.length) {
+      let current = stack.pop();
+      if (!visited.has(current)) {
+        visited.add(current);
+        result.push(current);
+        let neighbors = this.getNeighbors(current);
+        for (let neighbor of neighbors) {
+          stack.push(neighbor.node);
+        }
+      }
+    }
+    return result;
+  }
 }
 
 function businessTrip(graph, cities) {
