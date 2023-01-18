@@ -1,4 +1,4 @@
-const {Graph, businessTrip} = require('../index');
+const { Graph, businessTrip } = require('../index');
 
 
 describe('Graph', () => {
@@ -16,7 +16,7 @@ describe('Graph', () => {
     graph.addNode('A');
     graph.addNode('B');
     graph.addEdge('A', 'B', 5);
-    expect(graph.getNeighbors('A')).toEqual([{node: 'B', weight: 5}]);
+    expect(graph.getNeighbors('A')).toEqual([{ node: 'B', weight: 5 }]);
   });
 
   test('getNodes should return all of the nodes in the graph', () => {
@@ -32,7 +32,7 @@ describe('Graph', () => {
     graph.addNode('C');
     graph.addEdge('A', 'B', 5);
     graph.addEdge('B', 'C', 3);
-    expect(graph.getNeighbors('A')).toEqual([{node: 'B', weight: 5}]);
+    expect(graph.getNeighbors('A')).toEqual([{ node: 'B', weight: 5 }]);
   });
 
   test('getNeighbors should return the weight of the connection in the returned collection', () => {
@@ -113,5 +113,37 @@ describe('buisness trip', () => {
   test('handles a single city input', () => {
     let flight = businessTrip(graph, ['Metroville']);
     expect(flight).toEqual(0);
+  });
+});
+
+describe('depthFirst', () => {
+  test('Test a graph with a single node', () => {
+    let graph1 = new Graph();
+    graph1.addNode(1);
+    let cities1 = [1];
+    let result1 = graph1.depthFirst(1);
+    expect(result1).toEqual(cities1);
+  });
+
+  test('Test a graph with multiple nodes and edges', () => {
+    let graph2 = new Graph();
+    graph2.addNode(1);
+    graph2.addNode(2);
+    graph2.addNode(3);
+    graph2.addNode(4);
+    graph2.addEdge(1, 2);
+    graph2.addEdge(1, 3);
+    graph2.addEdge(2, 4);
+    let cities2 = [1, 3, 2, 4];
+    let result2 = graph2.depthFirst(1);
+    expect(result2).toEqual(cities2);
+  });
+
+  test('Test a graph with a non-existing node', () => {
+    let graph4 = new Graph();
+    graph4.addNode(1);
+    graph4.addNode(2);
+    let result4 = graph4.depthFirst(3);
+    expect(result4).toEqual(null);
   });
 });

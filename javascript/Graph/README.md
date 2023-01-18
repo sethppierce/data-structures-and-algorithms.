@@ -33,3 +33,7 @@ The time complexity of the function is O(n), where n is the number of cities in 
 ![cc-36](./CC-36.png)
 
 ![cc-37](./CC-37.png)
+
+#### depthFirst
+
+![cc-38](./CC-38.png)
